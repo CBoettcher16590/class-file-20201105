@@ -1,0 +1,23 @@
+
+.remainingTasks{
+    text-align: left;
+    padding-right: 20px;
+    
+  }
+
+  .task-list-container{
+    margin: 50px;
+  }
+  
+  .listed-tasks{
+    margin: 50px;;
+  }
+  .list-item{
+    margin-top: 10px;
+  }
+  .remainingTasks{
+    font-size: 20px;
+  }
+  .task-list input{
+    margin: 7px;
+  }

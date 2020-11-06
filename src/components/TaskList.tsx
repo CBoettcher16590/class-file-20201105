@@ -1,6 +1,8 @@
 import React, { ChangeEvent, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { ITask, taskListState } from '../data/TaskList.recoil';
+import Button from 'react-bootstrap/Button';
+import { Container } from 'react-bootstrap';
 
 
 function TaskList(){
@@ -56,22 +58,31 @@ function TaskList(){
     }
 
     return (
-        <div className="task-list-container">
-            <h1>To Do List</h1>
-            <div className="task-list">
-                { taskList.map(( task, index ) => <div key={index} style={{ textAlign: 'left' }}>
-                    <input type="checkbox" onChange={onCheckTaskHandler(index)}/>
-                    <input type="textbox" value={task.description} onChange={onUpdateDescriptionHandler(index)}/>
-                    <button onClick={onDeleteTaskHandler(index)}>Delete Item</button>
-                </div> )}
-            </div>
+            
+        
+            <div className="task-list-container">
+                <div></div>
+                <h1>To Do List</h1>
+                <div className="task-list">
+                    
+                    { taskList.map(( task, index ) => <div key={index} style={{ textAlign: 'left' }}>
+                        <input type="checkbox" onChange={onCheckTaskHandler(index)}/>
+                        <input type="textbox" value={task.description} onChange={onUpdateDescriptionHandler(index)}/>
 
-            <h1>Create To Do List Item</h1>
-            <div className="task-create-form">
-                <textarea value={newTaskDescription} style={{ width: '100%', height:"150px" }} onChange={onChangeNewTaskDescription} />
-                <button onClick={onClickAdd}>Add to Task List</button>
+                        <Button variant="outline-danger" onClick={onDeleteTaskHandler(index)}>Delete Item</Button>
+                    </div> )}
+                </div>
+
+                <h1>Create To Do List Item</h1>
+                <div className="task-create-form">
+                    <textarea value={newTaskDescription} style={{ width: '100%', height:"150px" }} onChange={onChangeNewTaskDescription} />
+                    
+                    <Button variant="outline-success" onClick={onClickAdd}>Add to Task List</Button>
+                </div>
             </div>
-        </div>
+   
+
+
     );
 
 
